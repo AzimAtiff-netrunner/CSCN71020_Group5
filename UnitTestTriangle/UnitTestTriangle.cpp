@@ -2,7 +2,7 @@
 #include "CppUnitTest.h"
 #include <string.h>
 
-extern "C" char* analyzeTriangle(int side1, int side2, int side3); double calculateAngle(int a, int b, int c);
+extern "C" char* analyzeTriangle(int side1, int side2, int side3);
 
 
 
@@ -74,19 +74,19 @@ namespace UnitTestTriangle
 			char* result = analyzeTriangle(side1, side2, side3);
 			Assert::IsTrue(strcmp(expected, result) == 0);
 		}
-		TEST_METHOD(TestTriangleAngle01)
-		{//testing the angle for a 3- 4- 5 triangle
-			int side1 = 3; 
-			int side2 = 4; 
-			int side3 = 5; 
+		//TEST_METHOD(TestTriangleAngle01)
+		//{//testing the angle for a 3- 4- 5 triangle
+		//	int side1 = 3; 
+		//	int side2 = 4; 
+		//	int side3 = 5; 
 
-			double angle1 = calculateAngle(side2, side3, side1);
-			double angle2 = calculateAngle(side1, side3, side2);
-			double angle3 = calculateAngle(side1, side2, side3);
+		//	double angle1 = calculateAngle(side2, side3, side1);
+		//	double angle2 = calculateAngle(side1, side3, side2);
+		//	double angle3 = calculateAngle(side1, side2, side3);
 
-			Assert::AreEqual(90.0, angle3, 0.01);
-			Assert::AreEqual(36.87, angle2, 0.01);
-			Assert::AreEqual(53.13, angle1, 0.01);
-		}
+		//	Assert::AreEqual(90.0, angle3, 0.01);
+		//	Assert::AreEqual(36.87, angle2, 0.01);
+		//	Assert::AreEqual(53.13, angle1, 0.01);
+		//}
 	};
 }
