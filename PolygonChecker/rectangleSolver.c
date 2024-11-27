@@ -44,3 +44,26 @@ char* analyzeRectangle(float rectanglePoints[4][2]) {
     if (rectanglePoints[0][0] == -1) {
         return "Invalid input for points.";
     }
+
+    // Calculate the distances between all pairs of points
+    float sideLengths[6];
+
+    sideLengths[0] = calculateDistance(rectanglePoints[0], rectanglePoints[1]); //calculating from points 0, 1, 2
+    sideLengths[1] = calculateDistance(rectanglePoints[0], rectanglePoints[2]);
+    sideLengths[2] = calculateDistance(rectanglePoints[0], rectanglePoints[3]);
+    sideLengths[3] = calculateDistance(rectanglePoints[1], rectanglePoints[2]);
+    sideLengths[4] = calculateDistance(rectanglePoints[1], rectanglePoints[3]);
+    sideLengths[5] = calculateDistance(rectanglePoints[2], rectanglePoints[3]);
+
+    // sort distances to easily compare them
+    // Opposite sides of a rectangle will have the same length
+    float temp;
+    for (int i = 0; i < 6 - 1; i++) {
+        for (int j = i + 1; j < 6; j++) {
+            if (sideLengths[i] > sideLengths[j]) {
+                temp = sideLengths[i];
+                sideLengths[i] = sideLengths[j];
+                sideLengths[j] = temp;
+            }
+        }
+    }
