@@ -67,3 +67,23 @@ char* analyzeRectangle(float rectanglePoints[4][2]) {
             }
         }
     }
+
+
+    // For valid rectangle, the two smallest distances need to be equal (width) and the next two to be equal (height)
+    if (sideLengths[0] == sideLengths[1] && sideLengths[2] == sideLengths[3] && sideLengths[4] == sideLengths[5]) {
+        // Check for perpendicularity of adjacent sides
+        if (isPerpendicular(rectanglePoints[0], rectanglePoints[1], rectanglePoints[2]) &&
+            isPerpendicular(rectanglePoints[1], rectanglePoints[2], rectanglePoints[3])) {
+
+            // Calculate perimeter and area
+            float perimeter = 2 * (sideLengths[0] + sideLengths[2]); //double of x,y pair added together 2(x+y)=Permieter
+            float area = sideLengths[0] * sideLengths[2];   //L*W=A
+
+            static char result[256];
+            snprintf(result, sizeof(result), "The points form a rectangle.\nPerimeter: %.2f\nArea: %.2f", perimeter, area);
+            return result;  //return results of calculation for Perimeter & Area
+        }
+    }
+
+    return "The points do not form a rectangle.";   //inform user for incorrect points for a rectangle to be made
+}
