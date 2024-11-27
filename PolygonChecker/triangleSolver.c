@@ -47,4 +47,8 @@ double calculateAngle(int a, int b, int c) {
     double cosineC = (pow(a, 2) + pow(b, 2) - pow(c, 2)) / (2.0 * a * b);
     double angleC = acos(cosineC) * (180.0 / PI); // Convert radians to degrees
     return angleC;
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
