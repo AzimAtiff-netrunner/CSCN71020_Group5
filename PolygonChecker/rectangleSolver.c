@@ -38,3 +38,9 @@ float(*getRectanglePoints(float rectanglePoints[4][2]))[2] {
     return rectanglePoints;
 }
 
+
+// Function to check if the four points form a rectangle
+char* analyzeRectangle(float rectanglePoints[4][2]) {
+    if (rectanglePoints[0][0] == -1) {
+        return "Invalid input for points.";
+    }
